@@ -51,3 +51,24 @@ export class VagaFrontEnd extends Vaga {
     return `${super.exibirResumo()} · Nível: ${this.nivel}`;
   }
 }
+
+export function encontrarMelhorVaga(resultados) {
+  return resultados.reduce((melhor, atual) =>
+    atual.analise.percentual > melhor.analise.percentual ? atual : melhor
+  );
+}
+
+export function gerarRecomendacao(faltantes) {
+  if (faltantes.length === 0) {
+    return "Parabéns! Você atende todos os requisitos da sua melhor vaga.";
+  }
+  return `Estude ${faltantes.join(", ")} para aumentar ainda mais sua compatibilidade.`;
+}
+
+export function criarContadorDeAnalises() {
+  let total = 0;
+  return function () {
+    total++;
+    return total;
+  };
+}
