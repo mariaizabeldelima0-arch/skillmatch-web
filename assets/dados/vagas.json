@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "empresa": "TechNuvem",
+    "cargo": "Desenvolvedor(a) Front-end Júnior",
+    "requisitos": ["HTML", "CSS", "JavaScript", "Git"],
+    "salario": 3500,
+    "beneficio": "Vale Refeição",
+    "modalidade": "Remoto",
+    "nivel": "Júnior"
+  },
+  {
+    "id": 2,
+    "empresa": "WebCore",
+    "cargo": "Front-end Developer Júnior",
+    "requisitos": ["HTML", "CSS", "JavaScript", "React", "Git"],
+    "salario": 3000,
+    "beneficio": "Plano de Saúde",
+    "modalidade": "Híbrido",
+    "nivel": "Júnior"
+  },
+  {
+    "id": 3,
+    "empresa": "Orbit Code",
+    "cargo": "Desenvolvedor(a) Front-end Jr.",
+    "requisitos": ["HTML", "CSS", "JavaScript", "TypeScript"],
+    "salario": 2800,
+    "beneficio": "Gympass",
+    "modalidade": "Remoto",
+    "nivel": "Júnior"
+  },
+  {
+    "id": 4,
+    "empresa": "Lumina Tech",
+    "cargo": "Front-end Júnior",
+    "requisitos": ["HTML", "CSS", "JavaScript", "React", "Figma"],
+    "salario": 3200,
+    "beneficio": "Vale Alimentação",
+    "modalidade": "Presencial",
+    "nivel": "Júnior"
+  },
+  {
+    "id": 5,
+    "empresa": "ByteWave",
+    "cargo": "Desenvolvedor(a) Front-end Júnior",
+    "requisitos": ["HTML", "CSS", "JavaScript", "SASS", "Git"],
+    "salario": 3400,
+    "beneficio": "Plano de Saúde",
+    "modalidade": "Híbrido",
+    "nivel": "Júnior"
+  }
+]

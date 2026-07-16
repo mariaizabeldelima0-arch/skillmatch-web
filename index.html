@@ -3,10 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SkillMatch Web</title>
+  <title>SkillMatch Web — Encontre vagas compatíveis com suas habilidades</title>
+  <meta name="description" content="Compare suas habilidades com os requisitos de vagas de front-end júnior e descubra seu percentual de compatibilidade.">
+  <link rel="stylesheet" href="./assets/styles/index.style.css">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/logo.svg">
 </head>
 <body>
-  <h1>SkillMatch Web</h1>
+  <header>
+    <img src="./assets/img/logo.svg" alt="Logo do SkillMatch Web">
+    <h1>SkillMatch Web</h1>
+    <p>Descubra as vagas de Front-end Júnior que mais combinam com você.</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="titulo-perfil">
+      <h2 id="titulo-perfil">Seu perfil</h2>
+      <form id="form-perfil">
+        <div>
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome">
+        </div>
+        <div>
+          <label for="area">Área de atuação</label>
+          <input type="text" id="area" name="area">
+        </div>
+        <div>
+          <label for="habilidades">Habilidades (separadas por vírgula)</label>
+          <input type="text" id="habilidades" name="habilidades">
+        </div>
+        <div>
+          <label for="experiencia">Tempo de experiência (meses)</label>
+          <input type="number" id="experiencia" name="experiencia" min="0">
+        </div>
+        <p id="erro-formulario" role="alert"></p>
+        <button type="submit">Analisar compatibilidade</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="titulo-resultados">
+      <h2 id="titulo-resultados">Resultados</h2>
+      <p id="status" aria-live="polite"></p>
+      <div id="destaque"></div>
+      <div id="lista-vagas"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>SkillMatch Web — Encontre seu próximo passo no front-end. © 2026</p>
+  </footer>
+
   <script type="module" src="./assets/scripts/main.js"></script>
 </body>
 </html>
