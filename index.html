@@ -13,7 +13,26 @@
     <img src="./assets/img/logo.svg" alt="Logo do SkillMatch Web">
     <h1>SkillMatch Web</h1>
     <p>Descubra as vagas de Front-end Júnior que mais combinam com você.</p>
-  </header>
+  <button type="button" id="botao-tema" aria-label="Alternar entre tema claro e escuro">
+      <svg class="icone-sol" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <g stroke-linecap="round">
+          <line x1="12" y1="2" x2="12" y2="5"/>
+          <line x1="12" y1="19" x2="12" y2="22"/>
+          <line x1="2" y1="12" x2="5" y2="12"/>
+          <line x1="19" y1="12" x2="22" y2="12"/>
+          <line x1="4.5" y1="4.5" x2="6.6" y2="6.6"/>
+          <line x1="17.4" y1="17.4" x2="19.5" y2="19.5"/>
+          <line x1="4.5" y1="19.5" x2="6.6" y2="17.4"/>
+          <line x1="17.4" y1="6.6" x2="19.5" y2="4.5"/>
+        </g>
+      </svg>
+      <span class="trilho"><span class="bolinha"></span></span>
+      <svg class="icone-lua" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+      </svg>
+    </button>
+    </header>
 
   <main>
     <section aria-labelledby="titulo-perfil">
@@ -42,6 +61,14 @@
 
     <section aria-labelledby="titulo-resultados">
       <h2 id="titulo-resultados">Resultados</h2>
+      <div class="ordenacao">
+        <label for="ordenar">Ordenar por</label>
+        <select id="ordenar">
+          <option value="compatibilidade">Compatibilidade</option>
+          <option value="salario">Salário</option>
+          <option value="modalidade">Modalidade</option>
+        </select>
+      </div>
       <p id="status" aria-live="polite"></p>
       <div id="destaque"></div>
       <div id="lista-vagas"></div>

@@ -24,3 +24,11 @@ export function carregarPerfil() {
   }
   return JSON.parse(salvo);
 }
+
+export function salvarTema(tema) {
+  localStorage.setItem("tema", tema);
+}
+
+export function carregarTema() {
+  return localStorage.getItem("tema");
+}

@@ -81,10 +81,13 @@ input {
   border: 1px solid var(--cinza-borda);
   border-radius: 6px;
   font-size: 1rem;
+  background-color: var(--branco);
+  color: var(--texto);
 }
 
 input:focus-visible,
-button:focus-visible {
+button:focus-visible,
+select:focus-visible {
   outline: 3px solid var(--azul-medio);
   outline-offset: 2px;
 }
@@ -131,6 +134,22 @@ button:hover {
   border-left: 4px solid var(--azul-medio);
   padding: 0.6rem;
   margin-top: 0.6rem;
+}
+
+.ordenacao {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+select {
+  padding: 0.4rem;
+  border: 1px solid var(--cinza-borda);
+  border-radius: 6px;
+  background-color: var(--branco);
+  color: var(--texto);
+  font-size: 1rem;
 }
 
 #lista-vagas {
@@ -218,7 +237,7 @@ footer {
     flex: 1 1 12rem;
   }
 
-  button {
+  button[type="submit"] {
     flex: 1 1 100%;
     max-width: 16rem;
   }
@@ -232,4 +251,114 @@ footer {
   .card-vaga {
     flex: 1 1 calc(33% - 1rem);
   }
+}
+
+/* ===== Tema escuro ===== */
+
+body.tema-escuro {
+  --fundo: #0E1826;
+  --branco: #1B2939;
+  --texto: #E8EEF5;
+  --cinza-borda: #33475C;
+  --azul-claro: #1F3550;
+  --azul-medio: #7FB0E0;
+}
+
+body.tema-escuro header,
+body.tema-escuro footer {
+  background-color: #0A1220;
+  color: #E8EEF5;
+}
+
+body.tema-escuro h2 {
+  color: #E8EEF5;
+}
+
+body.tema-escuro label {
+  color: #E8EEF5;
+}
+
+body.tema-escuro button[type="submit"] {
+  background-color: #2E5A8F;
+  color: #E8EEF5;
+}
+
+body.tema-escuro button[type="submit"]:hover {
+  background-color: #3D6FA8;
+}
+
+body.tema-escuro .destaque-percentual,
+body.tema-escuro .lista-tem,
+body.tema-escuro .card-percentual.alta {
+  color: #5FBF6A;
+}
+
+body.tema-escuro .card-percentual.media {
+  color: #F0C040;
+}
+
+body.tema-escuro .card-percentual.baixa,
+body.tema-escuro .lista-falta {
+  color: #F08080;
+}
+
+/* ===== Toggle de tema (sol / interruptor / lua) ===== */
+
+#botao-tema {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  border: none;
+  padding: 0.3rem;
+  margin-top: 0.6rem;
+  cursor: pointer;
+}
+
+.trilho {
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background-color: #8FA3B8;
+  position: relative;
+  transition: background-color 0.25s;
+}
+
+.bolinha {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  transition: left 0.25s;
+}
+
+body.tema-escuro .trilho {
+  background-color: #34C759;
+}
+
+body.tema-escuro .bolinha {
+  left: 23px;
+}
+
+.icone-sol,
+.icone-lua {
+  stroke: #FFFFFF;
+  stroke-width: 2;
+  fill: none;
+}
+
+.icone-sol circle {
+  fill: #FFFFFF;
+}
+
+body.tema-escuro .icone-sol circle {
+  fill: none;
+}
+
+body.tema-escuro .icone-lua {
+  fill: #FFFFFF;
 }

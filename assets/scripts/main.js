@@ -1,15 +1,24 @@
 // main.js — ponto de entrada: liga formulário, motor, dados e tela.
 
 import { encontrarMelhorVaga, gerarRecomendacao, criarContadorDeAnalises, normalizar } from "./motor.js";
-import { carregarVagas, salvarPerfil, carregarPerfil } from "./dados.js";
-import { mostrarStatus, mostrarErroFormulario, limparResultados, preencherFormulario, renderizarCard, renderizarDestaque } from "./ui.js";
+import { carregarVagas, salvarPerfil, carregarPerfil, salvarTema, carregarTema } from "./dados.js";
+import { mostrarStatus, mostrarErroFormulario, limparResultados, limparCards, preencherFormulario, renderizarCard, renderizarDestaque } from "./ui.js";
 
 const formulario = document.querySelector("#form-perfil");
+const seletorOrdenacao = document.querySelector("#ordenar");
+const botaoTema = document.querySelector("#botao-tema");
 const contarAnalise = criarContadorDeAnalises();
+
+let ultimosResultados = [];
 
 const perfilSalvo = carregarPerfil();
 if (perfilSalvo !== null) {
   preencherFormulario(perfilSalvo);
+}
+
+const temaSalvo = carregarTema();
+if (temaSalvo !== null) {
+  aplicarTema(temaSalvo);
 }
 
 formulario.addEventListener("submit", async function (evento) {
@@ -31,6 +40,46 @@ formulario.addEventListener("submit", async function (evento) {
     mostrarStatus("Não foi possível carregar as vagas. Tente novamente em alguns instantes.");
   }
 });
+
+botaoTema.addEventListener("click", function () {
+  const novoTema = document.body.classList.contains("tema-escuro") ? "claro" : "escuro";
+  salvarTema(novoTema);
+  aplicarTema(novoTema);
+});
+
+seletorOrdenacao.addEventListener("change", function () {
+  if (ultimosResultados.length === 0) {
+    return;
+  }
+  limparCards();
+  renderizarCards(ultimosResultados);
+});
+
+function aplicarTema(tema) {
+  if (tema === "escuro") {
+    document.body.classList.add("tema-escuro");
+  } else {
+    document.body.classList.remove("tema-escuro");
+  }
+  botaoTema.setAttribute("aria-pressed", tema === "escuro");
+}
+
+function ordenarResultados(resultados, criterio) {
+  const copia = resultados.slice();
+  if (criterio === "salario") {
+    copia.sort((a, b) => b.vaga.salario - a.vaga.salario);
+  } else if (criterio === "modalidade") {
+    copia.sort((a, b) => a.vaga.modalidade.localeCompare(b.vaga.modalidade));
+  } else {
+    copia.sort((a, b) => b.analise.percentual - a.analise.percentual);
+  }
+  return copia;
+}
+
+function renderizarCards(resultados) {
+  const ordenados = ordenarResultados(resultados, seletorOrdenacao.value);
+  ordenados.forEach(resultado => renderizarCard(resultado.vaga, resultado.analise));
+}
 
 function montarPerfil() {
   return {
@@ -63,11 +112,13 @@ function exibirResultados(resultados, perfil) {
     return;
   }
 
+  ultimosResultados = resultados;
+
   const melhor = encontrarMelhorVaga(resultados);
   const recomendacao = gerarRecomendacao(melhor.analise.faltantes);
 
   renderizarDestaque(melhor, recomendacao, perfil);
-  resultados.forEach(resultado => renderizarCard(resultado.vaga, resultado.analise));
+  renderizarCards(resultados);
 
   mostrarStatus(`Análise nº ${contarAnalise()} da sessão concluída.`);
 }

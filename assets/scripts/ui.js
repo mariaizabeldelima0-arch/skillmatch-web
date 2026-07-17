@@ -120,3 +120,7 @@ export function renderizarDestaque(melhor, recomendacao, perfil) {
 
   destaque.appendChild(caixa);
 }
+
+export function limparCards() {
+  listaVagas.textContent = "";
+}
