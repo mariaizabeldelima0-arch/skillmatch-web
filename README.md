@@ -6,7 +6,7 @@ Acesse online: https://mariaizabeldelima0-arch.github.io/skillmatch-web/
 
 Vídeo de apresentação: https://drive.google.com/drive/folders/1_SEycyLCpZ8UZgfVVnbH7EVlYaoPwrIi
 
-Quadro no Trello: https://trello.com/invite/b/6a4e7d185f948ab0563a1894/ATTIecbdfba6b32c1989abb9bafc591b669f811A0B0A/skillmatch-web
+Quadro no Trello: https://trello.com/b/htAbx9NX/skillmatch-web
 
 ## O que ele resolve
 
