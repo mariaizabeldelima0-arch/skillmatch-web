@@ -4,7 +4,7 @@ Site que compara as suas habilidades com os requisitos de vagas de front-end jú
 
 Acesse online: https://mariaizabeldelima0-arch.github.io/skillmatch-web/
 
-Vídeo de apresentação: 
+Vídeo de apresentação: https://drive.google.com/drive/folders/1_SEycyLCpZ8UZgfVVnbH7EVlYaoPwrIi
 
 Quadro no Trello: https://trello.com/invite/b/6a4e7d185f948ab0563a1894/ATTIecbdfba6b32c1989abb9bafc591b669f811A0B0A/skillmatch-web
 
